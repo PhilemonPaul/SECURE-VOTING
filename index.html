@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Voting Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body class="flex flex-col items-center min-h-screen">
+
+    <header class="navbar fixed top-0 w-full z-10">
+        <div class="navbar-logo flex items-center">
+            <img src="/img/embel.png" alt="National Emblem of India" class="h-12 mr-4">
+            <img src="/img/ec.png" alt="ECI Logo" class="h-12 mr-4">
+            <div>
+                <p class="text-sm">भारत निर्वाचन आयोग</p>
+                <h1 class="text-lg font-bold">Election Commission of India</h1>
+            </div>
+        </div>
+        <div class="navbar-links flex space-x-4">
+            <a href="#" id="nav-register" class="px-4 py-2 rounded-lg font-semibold border-2 border-gray-600">Register</a>
+            <a href="#" id="nav-vote" class="px-4 py-2 rounded-lg font-semibold border-2 border-gray-600">Vote</a>
+            <a href="#" id="nav-result" class="px-4 py-2 rounded-lg font-semibold border-2 border-gray-600">Result</a>
+        </div>
+    </header>
+
+    <div class="container mx-auto p-4 md:p-8 card my-8 w-11/12 max-w-2xl mt-24">
+        <!-- Home Page -->
+        <div id="home-page" class="space-y-6 text-center mt-8">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-4">
+                <button id="register-button" class="flex flex-col items-center p-8 rounded-lg font-semibold w-full md:w-1/3 btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Register
+                </button>
+                <button id="vote-button" class="flex flex-col items-center p-8 rounded-lg font-semibold w-full md:w-1/3 btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon animate-pulse">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        <path d="m9 12 2 2 4-4"/>
+                    </svg>
+                    Vote
+                </button>
+                <button id="result-button" class="flex flex-col items-center p-8 rounded-lg font-semibold w-full md:w-1/3 btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
+                        <line x1="12" y1="20" x2="12" y2="10"/>
+                        <line x1="18" y1="20" x2="18" y2="4"/>
+                        <line x1="6" y1="20" x2="6" y2="16"/>
+                    </svg>
+                    Result
+                </button>
+            </div>
+        </div>
+
+        <!-- Registration Page -->
+        <div id="register-page" class="space-y-6 p-4 hidden mt-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Register</h2>
+            <p class="text-gray-600 text-center mb-6">Please provide your details below:</p>
+            <div class="space-y-4">
+                <div class="input-container">
+                    <input type="text" id="name" placeholder="Your Name" class="w-full mt-1 p-2 pl-10 border border-gray-300 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                <div class="input-container">
+                    <input type="date" id="dob" class="w-full mt-1 p-2 pl-10 border border-gray-300 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><rect width="18" height="18" x="3" y="4" rx="2" ry="2"/><line x1="16" x2="16" y1="2" y2="6"/><line x1="8" x2="8" y1="2" y2="6"/><line x1="3" x2="21" y1="10" y2="10"/></svg>
+                </div>
+                <div class="input-container">
+                    <input type="text" id="voterId" placeholder="Your Voter number" class="w-full mt-1 p-2 pl-10 border border-gray-300 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+                        <rect x="2" y="4" width="20" height="16" rx="2" ry="2"/>
+                     <line x1="8" y1="10" x2="16" y2="10"/>
+                    <line x1="8" y1="14" x2="12" y2="14"/>
+                    </svg>
+                </div>
+                <div class="input-container">
+                    <input type="tel" id="phoneNumber" placeholder="Your phone number" class="w-full mt-1 p-2 pl-10 border border-gray-300 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon">
+                    <path d="M22 16.92v3a2 2 0 0 1-2 2 19.79 19.79 0 0 1-8.63-2.37 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 5a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2c0 .66-.08 1.32-.23 1.95a2 2 0 0 0 .45 1.84l2.1 2.1a2 2 0 0 0 1.84.45c.63-.15 1.29-.23 1.95-.23a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2z"/>
+                    </svg>
+                </div>
+                <div class="password-container">
+                    <input type="password" id="password" placeholder="Create a password" class="w-full mt-1 p-2 border border-gray-300 rounded-lg pr-10">
+                    <span class="password-toggle" id="password-toggle-reg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.575 3.01 9.963 7.183a1.012 1.012 0 0 1 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.575-3.01-9.963-7.183Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </span>
+                </div>
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password" class="w-full mt-1 p-2 border border-gray-300 rounded-lg pr-10">
+                    <span class="password-toggle" id="password-toggle-confirm-reg">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.575 3.01 9.963 7.183a1.012 1.012 0 0 1 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.575-3.01-9.963-7.183Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <button id="submit-registration" class="w-full py-3 rounded-lg font-semibold btn-secondary mt-6">Submit</button>
+        </div>
+
+        <!-- Registration Success Page -->
+        <div id="registration-success-page" class="text-center p-8 hidden mt-8">
+            <h2 class="text-3xl font-bold text-gray-800">Registered successfully!</h2>
+            <p class="mt-4 text-lg text-gray-600">Click <a href="#" id="continue-to-login" class="text-blue-600 hover:underline">here</a> to continue.</p>
+        </div>
+
+        <!-- Vote Page -->
+        <div id="vote-page" class="space-y-6 p-4 hidden mt-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Vote</h2>
+            <p class="text-gray-600 text-center mb-6">Please provide your vote below:</p>
+
+            <!-- Authentication Form -->
+            <div id="auth-container" class="space-y-4">
+                <p class="text-center text-gray-700 font-medium">Please authenticate to continue:</p>
+                <div class="input-container">
+                    <input type="text" id="voterIdAuth" placeholder="Voter ID Number" class="w-full mt-1 p-2 pl-10 border border-gray-300 rounded-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="input-icon"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                </div>
+                <div class="password-container">
+                    <input type="password" id="passwordAuth" placeholder="Enter your password" class="w-full mt-1 p-2 border border-gray-300 rounded-lg pr-10">
+                    <span class="password-toggle" id="password-toggle-auth">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.575 3.01 9.963 7.183a1.012 1.012 0 0 1 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.575-3.01-9.963-7.183Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
+                    </span>
+                </div>
+                <button id="submit-auth" class="w-full py-3 rounded-lg font-semibold btn-secondary mt-6">Authenticate</button>
+            </div>
+
+            <!-- Voting options -->
+            <div id="voting-container" class="hidden">
+                <table class="w-full border-collapse">
+                    <thead>
+                        <tr class="bg-gray-100 border-b border-gray-300">
+                            <th class="p-2 text-left">Option</th>
+                            <th class="p-2 text-left">Party Name</th>
+                            <th class="p-2 text-left">Party symbol</th>
+                        </tr>
+                    </thead>
+                    <tbody id="candidate-list">
+                        <tr class="border-b border-gray-200 candidate-row" data-option="1">
+                            <td class="p-2">1</td>
+                            <td class="p-2">DMK PARTY</td>
+                            <td class="p-2 w-20 h-20"><img src="img/DMK.png" alt="DMK" class="rounded"></td>
+                        </tr>
+                        <tr class="border-b border-gray-200 candidate-row" data-option="2">
+                            <td class="p-2">2</td>
+                            <td class="p-2">ADMK PARTY</td>
+                            <td class="p-2 w-20 h-20"><img src="img/ADMK.png" alt="ADMK" class="rounded"></td>
+                        </tr>
+                        <tr class="border-b border-gray-200 candidate-row" data-option="3">
+                            <td class="p-2">3</td>
+                            <td class="p-2">TVK PARTY</td>
+                            <td class="p-2 w-20 h-20"><img src="img/TVK.jpg" alt="TVK" class="rounded"></td>
+                        </tr>
+                        <tr class="border-b border-gray-200 candidate-row" data-option="4">
+                            <td class="p-2">4</td>
+                            <td class="p-2">BJP PARTY</td>
+                            <td class="p-2 w-20 h-20"><img src="img/BJP.png" alt="BJP" class="rounded"></td>
+                        </tr>
+                        <tr class="border-b border-gray-200 candidate-row" data-option="5">
+                            <td class="p-2">5</td>
+                            <td class="p-2">N.O.T.A - None of the Above</td>
+                            <td class="p-2 w-20 h-20"><img src="https://placehold.co/80x80/cccccc/333333?text=NOTA" alt="NOTA" class="rounded"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button id="submit-vote" class="w-full py-3 rounded-lg font-semibold btn-secondary mt-6">Submit Vote</button>
+            </div>
+        </div>
+
+        <!-- Vote Success Page -->
+        <div id="vote-success-page" class="text-center p-8 hidden mt-8">
+            <h2 class="text-3xl font-bold text-gray-800">Voted successfully!</h2>
+            <p class="mt-4 text-lg text-gray-600">Click <a href="#" id="continue-to-results" class="text-blue-600 hover:underline">here</a> to continue.</p>
+        </div>
+
+        <!-- Results Page -->
+        <div id="result-page" class="space-y-6 p-4 hidden mt-8">
+            <h2 class="text-2xl font-semibold mb-4 text-center">Election Results</h2>
+            <table class="w-full border-collapse">
+                <thead>
+                    <tr class="bg-gray-100 border-b border-gray-300">
+                        <th class="p-2 text-left">ID</th>
+                        <th class="p-2 text-left">Name</th>
+                        <th class="p-2 text-left">Total</th>
+                    </tr>
+                </thead>
+                <tbody id="results-table-body">
+                    <!-- Results will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Generic Message/Modal -->
+        <div id="message-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center p-4">
+            <div class="bg-white rounded-lg p-6 shadow-xl w-full max-w-sm">
+                <p id="modal-text" class="text-center text-lg font-semibold text-gray-800 mb-4"></p>
+                <div class="flex justify-center">
+                    <button id="modal-close-button" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors duration-300 transform active:scale-95">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
